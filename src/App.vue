@@ -1,7 +1,15 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useBillStore } from '@/stores/bill'
 
 const route = useRoute()
+const billStore = useBillStore()
+
+// 应用启动时加载全部账单
+onMounted(() => {
+  billStore.loadAll()
+})
 </script>
 
 <template>

@@ -8,6 +8,7 @@
 - ✅ 阶段 0：项目脚手架（`cadb053`）
 - ✅ 阶段 1：路由与布局骨架（导航栏 + `/`、`/bills` 路由切换，构建通过）
 - ✅ 阶段 2：数据层（types/bill.ts + db/index.ts Dexie + constants/category.ts，IndexedDB 读写已实测通过）
+- ✅ 阶段 3：Pinia 状态层（bill store：loadAll/addBill/updateBill/removeBill + 本月 getters；add/update 用 toRaw 避开响应式 Proxy 存储问题；错误处理 try/catch+ElMessage 已内置，浏览器实测增删改查+本月统计正确）
 
 ## 总览
 
