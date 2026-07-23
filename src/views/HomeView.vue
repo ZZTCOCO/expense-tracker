@@ -123,4 +123,18 @@ function formatYuan(n: number) {
 .recent-amount.expense {
   color: var(--el-color-danger);
 }
+
+@media (max-width: 640px) {
+  .summary-row {
+    flex-direction: column;
+  }
+
+  .section-header {
+    flex-wrap: wrap;
+  }
+
+  .recent-date {
+    width: auto;
+  }
+}
 </style>

@@ -66,3 +66,14 @@ body {
 .placeholder {
   color: var(--el-text-color-secondary);
 }
+
+@media (max-width: 640px) {
+  .app-header {
+    padding: 0 12px;
+    gap: 12px;
+  }
+
+  .app-main {
+    padding: 16px;
+  }
+}
