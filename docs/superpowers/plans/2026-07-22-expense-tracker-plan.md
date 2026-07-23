@@ -10,6 +10,7 @@
 - ✅ 阶段 2：数据层（types/bill.ts + db/index.ts Dexie + constants/category.ts，IndexedDB 读写已实测通过）
 - ✅ 阶段 3：Pinia 状态层（bill store：loadAll/addBill/updateBill/removeBill + 本月 getters；add/update 用 toRaw 避开响应式 Proxy 存储问题；错误处理 try/catch+ElMessage 已内置，浏览器实测增删改查+本月统计正确）
 - ✅ 阶段 4：记一笔 BillFormDialog（新增/编辑共用；类型/金额/分类随类型切换/日期/备注；表单校验；提交走 store）——浏览器实测：填表提交入库+刷新仍在、空提交校验拦截、切收入分类变工资/兼职/其他
+- ✅ 阶段 5：账单列表 BillTable + BillsView（6 列、日期倒序、金额带+/-、空备注—、编辑回填、删除确认、月份筛选、空状态）——浏览器实测增删改查+筛选+空状态全部正常
 
 ## 总览
 
