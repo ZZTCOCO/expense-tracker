@@ -7,6 +7,7 @@
 ### 完成记录
 - ✅ 阶段 0：项目脚手架（`cadb053`）
 - ✅ 阶段 1：路由与布局骨架（导航栏 + `/`、`/bills` 路由切换，构建通过）
+- ✅ 阶段 2：数据层（types/bill.ts + db/index.ts Dexie + constants/category.ts，IndexedDB 读写已实测通过）
 
 ## 总览
 
