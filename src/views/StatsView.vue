@@ -110,4 +110,15 @@ const lineOption = computed(() => ({
 .chart {
   height: 320px;
 }
+
+@media (max-width: 640px) {
+  .chart-head {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .chart {
+    height: 260px;
+  }
+}
 </style>

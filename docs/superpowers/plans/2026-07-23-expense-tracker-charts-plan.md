@@ -3,7 +3,7 @@
 - 日期：2026-07-23
 - 关联设计：`docs/superpowers/specs/2026-07-22-expense-tracker-design.md`（第 3 节「后续阶段」第二层）
 - 依赖：第一层 MVP 已完成（阶段 0–7）
-- 状态：进行中
+- 状态：已完成（阶段 8–10 全部完成）
 
 ## 总览
 
@@ -67,3 +67,4 @@
 ### 完成记录
 - ✅ 阶段 8：图表脚手架 + 统计纯函数（echarts+vue-echarts 按需插件、`/stats` 路由+导航、StatsView 占位、utils/billStats 纯函数实测正确；echarts 改为 StatsView 局部懒加载，主包不膨胀）
 - ✅ 阶段 9：饼图 + 折线图（本月支出分类占比饼图 + 近6月收支趋势折线，月份切换，空状态）——视觉确认饼图占比/折线双线数据正确，月份切换响应、空状态生效
+- ✅ 阶段 10：收尾（窄屏响应式：图表高度收紧、表头换行；npm run build 通过，echarts 正确懒加载进 StatsView chunk；preview 生产构建视觉确认图表渲染、0 报错）
