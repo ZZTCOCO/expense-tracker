@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { Moon, Sunny } from '@element-plus/icons-vue'
 import { useBillStore } from '@/stores/bill'
+import { useTheme } from '@/composables/useTheme'
 
 const route = useRoute()
 const billStore = useBillStore()
+const { isDark, toggle } = useTheme()
 
 // 应用启动时加载全部账单
 onMounted(() => {
@@ -27,6 +30,15 @@ onMounted(() => {
         <el-menu-item index="/bills">账单</el-menu-item>
         <el-menu-item index="/stats">统计</el-menu-item>
       </el-menu>
+      <div class="theme-toggle">
+        <el-switch
+          :model-value="isDark"
+          :active-action-icon="Moon"
+          :inactive-action-icon="Sunny"
+          aria-label="切换明暗主题"
+          @change="toggle"
+        />
+      </div>
     </el-header>
     <el-main class="app-main">
       <div class="app-content">

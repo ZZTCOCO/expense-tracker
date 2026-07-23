@@ -53,12 +53,15 @@ function amountText(b: Bill) {
 
 <style scoped>
 .amount {
-  font-weight: 600;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 .amount.income {
-  color: var(--el-color-success);
+  color: var(--neon-income);
+  text-shadow: var(--glow-income-sm);
 }
 .amount.expense {
-  color: var(--el-color-danger);
+  color: var(--neon-expense);
+  text-shadow: var(--glow-expense-sm);
 }
 </style>

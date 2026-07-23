@@ -1,10 +1,95 @@
+/* ============ 主题 token ============ */
+
+/* 浅色（白天）为默认 */
 :root {
+  --app-bg: #f4f5f9;
+  --app-text: #1f2533;
+  --app-text-dim: #6b7280;
+  --app-border: rgba(15, 23, 42, 0.08);
+  --header-bg: rgba(255, 255, 255, 0.82);
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+
+  /* 强调色（浅色下用偏深的霓虹，保证对比） */
+  --neon-cyan: #0891b2;
+  --neon-purple: #7c3aed;
+  --neon-income: #059669;
+  --neon-expense: #e11d48;
+
+  /* 辉光：浅色模式关闭 */
+  --glow-income: none;
+  --glow-expense: none;
+  --glow-cyan: none;
+  --glow-income-sm: none;
+  --glow-expense-sm: none;
+
+  /* Element Plus 主色跟随 */
+  --el-color-primary: var(--neon-cyan);
+  --el-color-primary-light-3: #2ba6c4;
+  --el-color-primary-light-5: #5dbfd6;
+  --el-color-primary-light-7: #90d6e5;
+  --el-color-primary-light-8: #b6e3ee;
+  --el-color-primary-light-9: #ddf1f7;
+  --el-color-primary-dark-2: #06748f;
+  --el-color-success: var(--neon-income);
+  --el-color-danger: var(--neon-expense);
+  --el-bg-color-page: var(--app-bg);
+
   font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.5;
   font-size: 16px;
   color-scheme: light;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--app-text);
+}
+
+/* 暗黑霓虹 */
+html.dark {
+  --app-bg: #0b0f1a;
+  --app-text: #e5e7eb;
+  --app-text-dim: #94a3b8;
+  --app-border: rgba(148, 163, 184, 0.16);
+  --header-bg: rgba(11, 15, 26, 0.72);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+
+  --neon-cyan: #22d3ee;
+  --neon-purple: #a855f7;
+  --neon-income: #34d399;
+  --neon-expense: #fb7185;
+
+  --glow-income: 0 0 22px rgba(52, 211, 153, 0.55);
+  --glow-expense: 0 0 22px rgba(251, 113, 133, 0.55);
+  --glow-cyan: 0 0 22px rgba(34, 211, 238, 0.55);
+  --glow-income-sm: 0 0 14px rgba(52, 211, 153, 0.45);
+  --glow-expense-sm: 0 0 14px rgba(251, 113, 133, 0.45);
+
+  --el-color-primary: var(--neon-cyan);
+  --el-color-primary-light-3: #1b9fb3;
+  --el-color-primary-light-5: #15788a;
+  --el-color-primary-light-7: #0f5762;
+  --el-color-primary-light-8: #0c454e;
+  --el-color-primary-light-9: rgba(34, 211, 238, 0.12);
+  --el-color-primary-dark-2: #4bddef;
+  --el-color-success: var(--neon-income);
+  --el-color-danger: var(--neon-expense);
+  --el-bg-color: #11162a;
+  --el-bg-color-page: var(--app-bg);
+  --el-bg-color-overlay: #161c33;
+  --el-text-color-primary: var(--app-text);
+  --el-text-color-regular: #cbd5e1;
+  --el-text-color-secondary: var(--app-text-dim);
+  --el-border-color: var(--app-border);
+  --el-border-color-light: rgba(148, 163, 184, 0.12);
+  --el-border-color-lighter: rgba(148, 163, 184, 0.08);
+  --el-fill-color: rgba(255, 255, 255, 0.03);
+  --el-fill-color-light: rgba(255, 255, 255, 0.04);
+  --el-fill-color-lighter: rgba(255, 255, 255, 0.02);
+  --el-fill-color-blank: transparent;
+  --el-mask-color: rgba(0, 0, 0, 0.65);
+
+  color: var(--app-text);
 }
 
 * {
@@ -14,8 +99,18 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: #f5f6f8;
-  color: var(--el-text-color-primary);
+  color: var(--app-text);
+  background: var(--app-bg);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* 暗色：叠加角落霓虹光晕 */
+html.dark body {
+  background:
+    radial-gradient(1200px 600px at 85% -15%, rgba(168, 85, 247, 0.2), transparent 60%),
+    radial-gradient(1000px 520px at -5% 0%, rgba(34, 211, 238, 0.18), transparent 55%),
+    var(--app-bg);
+  background-attachment: fixed;
 }
 
 #app {
@@ -26,32 +121,47 @@ body {
   min-height: 100vh;
 }
 
+/* 顶部导航 */
 .app-header {
   display: flex;
   align-items: center;
   gap: 24px;
   padding: 0 24px;
-  background: #fff;
-  border-bottom: 1px solid var(--el-border-color);
+  background: var(--header-bg);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--app-border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .app-name {
   font-size: 20px;
-  font-weight: 600;
-  color: var(--el-text-color-primary);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   white-space: nowrap;
 }
 
 .app-menu {
   flex: 1;
   border-bottom: none !important;
+  background: transparent !important;
 }
 
+.theme-toggle {
+  display: flex;
+  align-items: center;
+}
+
+/* 主内容区居中 */
 .app-main {
   padding: 24px;
 }
 
-/* 主内容区居中，最大宽度约 1000px */
 .app-content {
   max-width: 1000px;
   margin: 0 auto;
@@ -61,10 +171,55 @@ body {
   margin: 0 0 16px;
   font-size: 24px;
   font-weight: 600;
+  color: var(--app-text);
 }
 
 .placeholder {
-  color: var(--el-text-color-secondary);
+  color: var(--app-text-dim);
+}
+
+/* 全局卡片：浅色实心 / 暗色玻璃 */
+.el-card {
+  background: var(--card-bg);
+  border: 1px solid var(--app-border);
+  border-radius: 14px;
+  box-shadow: var(--card-shadow);
+  color: var(--app-text);
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.el-card__body {
+  color: var(--app-text);
+}
+
+html.dark .el-card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(12px);
+}
+
+/* 表格透明背景（双主题通用） */
+.el-table {
+  background: transparent;
+}
+
+.el-table tr,
+.el-table th.el-table__cell,
+.el-table td.el-table__cell {
+  background-color: transparent !important;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped td.el-table__cell {
+  background-color: rgba(125, 125, 125, 0.06) !important;
+}
+
+.el-table.is-scrolling-left.el-table--border,
+.el-table--border,
+.el-table--border .el-table__cell {
+  border-color: var(--el-border-color) !important;
 }
 
 @media (max-width: 640px) {

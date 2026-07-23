@@ -22,22 +22,28 @@ defineProps<{
   color: var(--el-text-color-secondary);
   font-size: 14px;
   margin-bottom: 8px;
+  letter-spacing: 0.3px;
 }
 
 .summary-value {
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 30px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.5px;
 }
 
 .summary-value.income {
-  color: var(--el-color-success);
+  color: var(--neon-income);
+  text-shadow: var(--glow-income);
 }
 
 .summary-value.expense {
-  color: var(--el-color-danger);
+  color: var(--neon-expense);
+  text-shadow: var(--glow-expense);
 }
 
 .summary-value.balance {
-  color: var(--el-color-primary);
+  color: var(--neon-cyan);
+  text-shadow: var(--glow-cyan);
 }
 </style>

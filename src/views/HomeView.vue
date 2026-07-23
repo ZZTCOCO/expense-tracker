@@ -79,9 +79,10 @@ function formatYuan(n: number) {
   list-style: none;
   margin: 0;
   padding: 0;
-  background: #fff;
-  border-radius: 8px;
-  border: 1px solid var(--el-border-color);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid var(--neon-border);
 }
 
 .recent-item {
@@ -89,7 +90,7 @@ function formatYuan(n: number) {
   align-items: center;
   gap: 12px;
   padding: 12px 16px;
-  border-bottom: 1px solid var(--el-border-color-light);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
 }
 
 .recent-item:last-child {
@@ -100,6 +101,7 @@ function formatYuan(n: number) {
   color: var(--el-text-color-secondary);
   font-size: 14px;
   width: 96px;
+  font-variant-numeric: tabular-nums;
 }
 
 .recent-note {
@@ -113,15 +115,18 @@ function formatYuan(n: number) {
 
 .recent-amount {
   margin-left: auto;
-  font-weight: 600;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
 }
 
 .recent-amount.income {
-  color: var(--el-color-success);
+  color: var(--neon-income);
+  text-shadow: var(--glow-income-sm);
 }
 
 .recent-amount.expense {
-  color: var(--el-color-danger);
+  color: var(--neon-expense);
+  text-shadow: var(--glow-expense-sm);
 }
 
 @media (max-width: 640px) {
