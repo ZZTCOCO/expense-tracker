@@ -66,7 +66,7 @@ const lineOption = computed(() => {
   return {
     tooltip: { trigger: 'axis', ...tooltipStyle.value },
     legend: { data: ['收入', '支出'], textStyle: { color: legendText.value } },
-    grid: { left: 48, right: 20, top: 36, bottom: 30 },
+    grid: { left: 48, right: 20, top: 56, bottom: 30 },
     xAxis: {
       type: 'category',
       data: trend.value.labels,
