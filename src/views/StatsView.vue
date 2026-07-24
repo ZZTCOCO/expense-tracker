@@ -65,8 +65,8 @@ const lineOption = computed(() => {
   const shadow = (c: string) => (isDark.value ? { shadowColor: c, shadowBlur: 10 } : {})
   return {
     tooltip: { trigger: 'axis', ...tooltipStyle.value },
-    legend: { data: ['收入', '支出'], textStyle: { color: legendText.value } },
-    grid: { left: 48, right: 20, top: 56, bottom: 30 },
+    legend: { data: ['收入', '支出'], textStyle: { color: legendText.value }, bottom: 0 },
+    grid: { left: 48, right: 20, top: 28, bottom: 64 },
     xAxis: {
       type: 'category',
       data: trend.value.labels,
