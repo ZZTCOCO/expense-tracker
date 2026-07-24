@@ -57,3 +57,4 @@
 
 ### 完成记录
 - ✅ 阶段 12：分类数据层 + store（types/category、db v2 categories 表、constants 精简为预设、stores/category loadAll空则种入/add/remove/byType、App onMounted 加载分类、BillFormDialog 改读 store）——浏览器实测 Dexie 升级+预设种入+增删+持久化正确
+- ✅ 阶段 13：管理页 + 表单接入（CategoriesView 支出/收入两区 el-tag closable 删除 + 输入新增去重；路由 /categories + 导航「分类」）——实测新增/删除分类后记一笔下拉随之变化（咖啡加入、医疗移除）

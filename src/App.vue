@@ -32,6 +32,7 @@ onMounted(() => {
         <el-menu-item index="/">概览</el-menu-item>
         <el-menu-item index="/bills">账单</el-menu-item>
         <el-menu-item index="/stats">统计</el-menu-item>
+        <el-menu-item index="/categories">分类</el-menu-item>
       </el-menu>
       <div class="theme-toggle">
         <el-switch

@@ -13,6 +13,11 @@ const routes: RouteRecordRaw[] = [
     name: 'stats',
     component: () => import('@/views/StatsView.vue'),
   },
+  {
+    path: '/categories',
+    name: 'categories',
+    component: () => import('@/views/CategoriesView.vue'),
+  },
 ]
 
 const router = createRouter({
