@@ -3,15 +3,18 @@ import { onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { Moon, Sunny } from '@element-plus/icons-vue'
 import { useBillStore } from '@/stores/bill'
+import { useCategoryStore } from '@/stores/category'
 import { useTheme } from '@/composables/useTheme'
 
 const route = useRoute()
 const billStore = useBillStore()
+const categoryStore = useCategoryStore()
 const { isDark, toggle } = useTheme()
 
-// 应用启动时加载全部账单
+// 应用启动时加载账单与分类
 onMounted(() => {
   billStore.loadAll()
+  categoryStore.loadAll()
 })
 </script>
 

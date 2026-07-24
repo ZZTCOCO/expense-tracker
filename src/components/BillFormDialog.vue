@@ -2,7 +2,7 @@
 import { reactive, ref, watch, computed } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { useBillStore } from '@/stores/bill'
-import { getCategories } from '@/constants/category'
+import { useCategoryStore } from '@/stores/category'
 import type { Bill, BillType } from '@/types/bill'
 
 const props = defineProps<{
@@ -16,6 +16,7 @@ const emit = defineEmits<{
 }>()
 
 const store = useBillStore()
+const categoryStore = useCategoryStore()
 const formRef = ref<FormInstance>()
 const submitting = ref(false)
 
@@ -41,10 +42,17 @@ const visible = computed({
   set: (v) => emit('update:modelValue', v),
 })
 
-// 分类随类型切换
-const categoryOptions = computed(() => getCategories(form.type))
+// 分类选项来自 store；编辑时若当前分类已被删除仍追加显示
+const categoryOptions = computed(() => {
+  const opts = categoryStore.byType(form.type).map((c) => c.name)
+  const current = props.bill?.category
+  if (current && !opts.includes(current)) opts.unshift(current)
+  return opts
+})
+// 类型切换时，若当前分类不在新类型中则清空
 watch(() => form.type, (t) => {
-  if (!getCategories(t).includes(form.category)) {
+  const names = categoryStore.byType(t).map((c) => c.name)
+  if (!names.includes(form.category)) {
     form.category = ''
   }
 })
