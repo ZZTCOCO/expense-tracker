@@ -3,7 +3,7 @@
 - 日期：2026-07-24
 - 关联设计：`docs/superpowers/specs/2026-07-22-expense-tracker-design.md`（第 3 节「后续阶段」第二层：分类管理）
 - 依赖：第一层 MVP + 图表 + 暗黑霓虹 UI 已完成
-- 状态：进行中
+- 状态：已完成（阶段 12–14 全部完成）
 
 ## 总览
 
@@ -58,3 +58,4 @@
 ### 完成记录
 - ✅ 阶段 12：分类数据层 + store（types/category、db v2 categories 表、constants 精简为预设、stores/category loadAll空则种入/add/remove/byType、App onMounted 加载分类、BillFormDialog 改读 store）——浏览器实测 Dexie 升级+预设种入+增删+持久化正确
 - ✅ 阶段 13：管理页 + 表单接入（CategoriesView 支出/收入两区 el-tag closable 删除 + 输入新增去重；路由 /categories + 导航「分类」）——实测新增/删除分类后记一笔下拉随之变化（咖啡加入、医疗移除）
+- ✅ 阶段 14：收尾（npm run build 通过，CategoriesView 懒加载；preview 生产构建实测预设种入+新增+刷新持久化正常，明暗主题均 OK）
